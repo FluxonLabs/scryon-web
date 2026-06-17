@@ -136,7 +136,7 @@ export default function HomePage() {
               <ArrowRight size={16} />
             </Link>
             <Link
-              href="/login"
+              href="https://dashboard.scryon.app/login"
               className="flex items-center gap-2 px-6 py-3 rounded-xl border border-[var(--border)] text-[var(--text-secondary)] font-semibold hover:text-[var(--foreground)] hover:border-[var(--brand)] transition-colors"
             >
               Sign in to dashboard
@@ -308,7 +308,7 @@ export default function HomePage() {
               trends over time.
             </p>
             <Link
-              href="/login"
+              href="https://dashboard.scryon.app/login"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--brand)] text-white font-semibold hover:bg-[var(--brand-light)] transition-colors"
             >
               Open dashboard

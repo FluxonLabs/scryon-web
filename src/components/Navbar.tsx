@@ -40,7 +40,7 @@ export function Navbar() {
           <Link href="/#how-it-works" className="text-sm text-[var(--text-secondary)] hover:text-[var(--foreground)] transition-colors">
             How it works
           </Link>
-          <Link href="/login" className="text-sm text-[var(--text-secondary)] hover:text-[var(--foreground)] transition-colors">
+          <Link href="https://dashboard.scryon.app/login" className="text-sm text-[var(--text-secondary)] hover:text-[var(--foreground)] transition-colors">
             Sign in
           </Link>
           <Link
@@ -71,7 +71,7 @@ export function Navbar() {
         <div className="px-4 py-4 flex flex-col gap-4">
           <Link href="/#features" className="text-sm text-[var(--text-secondary)]" onClick={() => setOpen(false)}>Features</Link>
           <Link href="/#how-it-works" className="text-sm text-[var(--text-secondary)]" onClick={() => setOpen(false)}>How it works</Link>
-          <Link href="/login" className="text-sm text-[var(--text-secondary)]" onClick={() => setOpen(false)}>Sign in</Link>
+          <Link href="https://dashboard.scryon.app/login" className="text-sm text-[var(--text-secondary)]" onClick={() => setOpen(false)}>Sign in</Link>
           <Link
             href="https://play.google.com/store"
             target="_blank"

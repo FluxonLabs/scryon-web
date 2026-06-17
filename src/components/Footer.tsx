@@ -20,7 +20,7 @@ export function Footer() {
           <Link href="/terms" className="hover:text-[var(--foreground)] transition-colors">
             Terms
           </Link>
-          <Link href="/login" className="hover:text-[var(--foreground)] transition-colors">
+          <Link href="https://dashboard.scryon.app/login" className="hover:text-[var(--foreground)] transition-colors">
             Sign in
           </Link>
         </nav>
