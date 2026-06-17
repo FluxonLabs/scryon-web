@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -12,9 +13,23 @@ export function Navbar() {
     <nav className="fixed top-0 inset-x-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/90 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 font-bold text-lg text-[var(--foreground)]">
-          <span className="w-7 h-7 rounded-lg bg-[var(--brand)] flex items-center justify-center text-white text-sm font-black">S</span>
-          <span>Scryon</span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo-blue.png"
+            alt="Scryon"
+            width={110}
+            height={36}
+            priority
+            className="h-8 w-auto block dark:hidden"
+          />
+          <Image
+            src="/logo-white.png"
+            alt="Scryon"
+            width={110}
+            height={36}
+            priority
+            className="h-8 w-auto hidden dark:block"
+          />
         </Link>
 
         {/* Desktop nav */}
