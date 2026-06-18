@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -51,6 +52,7 @@ export function Navbar() {
           >
             Get the app
           </Link>
+          <ThemeToggle />
         </div>
 
         {/* Mobile hamburger */}
