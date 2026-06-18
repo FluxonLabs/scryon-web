@@ -47,6 +47,9 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+// Inline script prevents flash of wrong theme before React hydrates.
+const themeScript = `(function(){var m=localStorage.getItem('scryon-web-theme')||'light';if(m==='dark'){document.documentElement.classList.add('dark')}})()`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,6 +57,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="min-h-full flex flex-col">
         {children}
         <Analytics />
