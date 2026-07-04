@@ -22,8 +22,8 @@ export default function PrivacyPage() {
             <p>
               Scryon collects the minimum data required to provide the service. When you sign in with
               Google, we receive your name and email address for account identification. When you
-              record a phone call, the audio is uploaded to our servers solely for the purpose of
-              transcription and analysis.
+              choose to transcribe a call recording already on your device, that audio is uploaded to
+              our servers solely for the purpose of transcription and analysis.
             </p>
           </section>
 

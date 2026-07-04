@@ -20,10 +20,10 @@ export const metadata: Metadata = {
     template: "%s | Scryon",
   },
   description:
-    "Scryon automatically transcribes your phone calls, identifies speakers, and extracts action items, sentiment, and key insights — all on your Android device.",
+    "Scryon finds the call recordings already on your Android phone and transcribes them, identifies speakers, and extracts action items, sentiment, and key insights.",
   keywords: [
     "call transcription",
-    "phone call recorder",
+    "call recording transcription",
     "AI meeting notes",
     "speaker diarization",
     "action items",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Scryon",
     title: "Scryon — AI Call Transcription & Analysis",
     description:
-      "Transcribe, analyze, and search your phone calls with AI. Speaker identification, action items, and sentiment — automatically.",
+      "Transcribe, analyze, and search the call recordings already on your phone with AI. Speaker identification, action items, and sentiment.",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {

@@ -17,9 +17,9 @@ import { Footer } from "@/components/Footer";
 const FEATURES = [
   {
     icon: Mic,
-    title: "Automatic Transcription",
+    title: "One-Tap Transcription",
     description:
-      "Records and transcribes your phone calls the moment they end. No tapping, no setup — it just works.",
+      "Scryon finds call recordings already on your phone and transcribes them the moment you tap — no manual file hunting or uploads.",
   },
   {
     icon: Users,
@@ -58,7 +58,7 @@ const STEPS = [
     step: "01",
     title: "Make your call",
     description:
-      "Record any phone call with Scryon's built-in recorder. The app detects calls automatically from your call log.",
+      "Scryon doesn't record calls itself — it detects the recording your phone's call-recorder already saved, matches it to your call log, and you tap Transcribe.",
   },
   {
     step: "02",
@@ -117,12 +117,12 @@ export default function HomePage() {
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-[var(--foreground)] leading-[1.1] tracking-tight mb-6">
             Every call, fully{" "}
-            <span className="text-[var(--brand-light)]">understood</span>
+            <span className="text-[var(--brand-light)]">remembered</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto mb-10 leading-relaxed">
-            Scryon transcribes your Android phone calls, identifies each speaker, and extracts action
-            items, sentiment, and key insights — automatically.
+            Scryon finds the call recordings already on your Android phone, then transcribes them,
+            identifies each speaker, and extracts action items, sentiment, and key insights.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
