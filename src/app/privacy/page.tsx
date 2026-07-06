@@ -87,11 +87,11 @@ export default function PrivacyPage() {
             <p>
               You can delete any call — including its transcript and analysis — at any time from the
               app or the web dashboard. Deleting your account removes all associated data permanently.
-              To request account deletion, contact us at{" "}
-              <a href="mailto:privacy@scryon.app" className="text-[var(--brand-light)] hover:underline">
-                privacy@scryon.app
+              See{" "}
+              <a href="/account/delete" className="text-[var(--brand-light)] hover:underline">
+                how to delete your account
               </a>
-              .
+              , whether or not you have the app installed.
             </p>
           </section>
 
