@@ -31,27 +31,99 @@ const STEPS = [
   {
     number: "03",
     title: "Review your notes",
-    description: "Read the summary, transcript, and action items, then update the title if needed.",
+    description: "Read the summary, transcript, and action items in one focused view.",
   },
 ];
 
 const FEATURES = [
   {
-    icon: FileText,
+    visual: "transcript",
     title: "Readable transcripts",
     description: "Follow the conversation with speaker-separated text and clear timestamps.",
   },
   {
-    icon: Sparkles,
+    visual: "summary",
     title: "Useful summaries",
     description: "See the decisions and important discussion points without replaying the full call.",
   },
   {
-    icon: ListChecks,
+    visual: "actions",
     title: "Action items",
     description: "Keep follow-ups visible and mark them complete from one focused list.",
   },
 ];
+
+function FeatureVisual({ type }: { type: string }) {
+  if (type === "transcript") {
+    return (
+      <div className="relative h-48 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-5">
+        <div className="flex items-center justify-between">
+          <p className="text-xs font-semibold text-[var(--foreground)]">Transcript</p>
+          <p className="text-[10px] text-[var(--text-muted)]">08:42</p>
+        </div>
+        <div className="mt-5 space-y-4">
+          <div className="flex items-start gap-3">
+            <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--brand)] text-[9px] font-semibold text-white">Y</div>
+            <div className="w-[74%] rounded-xl rounded-tl-sm bg-[var(--brand-dim)] px-3 py-2">
+              <div className="h-1.5 w-full rounded-full bg-[var(--brand)]/25" />
+              <div className="mt-2 h-1.5 w-2/3 rounded-full bg-[var(--brand)]/20" />
+            </div>
+          </div>
+          <div className="flex items-start justify-end gap-3">
+            <div className="w-[66%] rounded-xl rounded-tr-sm border border-[var(--border)] bg-[var(--surface)] px-3 py-2">
+              <div className="h-1.5 w-full rounded-full bg-[var(--text-muted)]/25" />
+              <div className="mt-2 h-1.5 w-1/2 rounded-full bg-[var(--text-muted)]/20" />
+            </div>
+            <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#ff922e] text-[9px] font-semibold text-white">S2</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (type === "summary") {
+    return (
+      <div className="relative h-48 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-5">
+        <div className="absolute -right-10 -top-10 size-32 rounded-full bg-[var(--brand-dim)]" />
+        <div className="relative flex size-10 items-center justify-center rounded-xl bg-[var(--brand-dim)]">
+          <Sparkles size={19} className="text-[var(--brand)]" />
+        </div>
+        <p className="relative mt-4 text-xs font-semibold text-[var(--foreground)]">Key points</p>
+        <div className="relative mt-3 space-y-3">
+          {["Launch plan confirmed", "Owners are aligned", "Review set for Friday"].map((line, index) => (
+            <div key={line} className="flex items-center gap-2.5">
+              <span className={`size-1.5 rounded-full ${index === 0 ? "bg-[var(--brand)]" : "bg-[var(--text-muted)]/45"}`} />
+              <span className="text-[11px] text-[var(--text-secondary)]">{line}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="h-48 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-5">
+      <div className="flex items-center justify-between">
+        <p className="text-xs font-semibold text-[var(--foreground)]">Actions</p>
+        <p className="text-[10px] font-medium text-[var(--positive)]">2 of 3 done</p>
+      </div>
+      <div className="mt-4 space-y-2.5">
+        {["Share launch timeline", "Confirm final owner", "Book Friday review"].map((item, index) => (
+          <div key={item} className="flex items-center gap-2.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface)] px-3 py-2.5">
+            {index < 2 ? (
+              <CheckCircle2 size={15} className="shrink-0 text-[var(--positive)]" />
+            ) : (
+              <span className="size-[15px] shrink-0 rounded-full border border-[var(--text-muted)]" />
+            )}
+            <span className={`text-[11px] ${index < 2 ? "text-[var(--text-muted)] line-through" : "text-[var(--text-secondary)]"}`}>
+              {item}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function AppPreview() {
   return (
@@ -190,8 +262,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="how-it-works" className="border-t border-[var(--border)] bg-[var(--surface)] px-5 py-24 sm:px-6">
-          <div className="mx-auto max-w-6xl">
+        <section className="border-t border-[var(--border)] bg-[var(--surface)] px-5 py-24 sm:px-6">
+          <div id="how-it-works" className="scroll-mt-24 mx-auto max-w-6xl">
             <div className="max-w-2xl">
               <p className="text-sm font-medium text-[var(--brand)]">How it works</p>
               <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] text-[var(--foreground)] sm:text-4xl">
@@ -211,8 +283,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="features" className="border-t border-[var(--border)] px-5 py-24 sm:px-6">
-          <div className="mx-auto max-w-6xl">
+        <section className="border-t border-[var(--border)] px-5 py-24 sm:px-6">
+          <div id="features" className="scroll-mt-24 mx-auto max-w-6xl">
             <div className="max-w-2xl">
               <p className="text-sm font-medium text-[var(--brand)]">Inside every call</p>
               <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] text-[var(--foreground)] sm:text-4xl">
@@ -220,12 +292,10 @@ export default function HomePage() {
               </h2>
             </div>
 
-            <div className="mt-12 grid gap-8 md:grid-cols-3">
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
               {FEATURES.map((feature) => (
                 <article key={feature.title}>
-                  <div className="flex size-11 items-center justify-center rounded-xl bg-[var(--brand-dim)]">
-                    <feature.icon size={20} className="text-[var(--brand)]" />
-                  </div>
+                  <FeatureVisual type={feature.visual} />
                   <h3 className="mt-5 text-lg font-semibold text-[var(--foreground)]">{feature.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">{feature.description}</p>
                 </article>
