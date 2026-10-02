@@ -1,48 +1,40 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const googleSansFlex = localFont({
+  src: [
+    { path: "./fonts/google-sans-flex-regular.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/google-sans-flex-medium.ttf", weight: "500", style: "normal" },
+    { path: "./fonts/google-sans-flex-semibold.ttf", weight: "600", style: "normal" },
+    { path: "./fonts/google-sans-flex-bold.ttf", weight: "700", style: "normal" },
+  ],
+  display: "swap",
+  variable: "--font-google-sans-flex",
+  fallback: ["system-ui", "sans-serif"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://scryon.app"),
   title: {
-    default: "Scryon — AI Call Transcription & Analysis",
+    default: "Scryon — Call notes for Android",
     template: "%s | Scryon",
   },
   description:
-    "Scryon finds the call recordings already on your Android phone and transcribes them, identifies speakers, and extracts action items, sentiment, and key insights.",
-  keywords: [
-    "call transcription",
-    "call recording transcription",
-    "AI meeting notes",
-    "speaker diarization",
-    "action items",
-    "call analysis",
-  ],
+    "Choose a saved recording and turn it into a clear summary, speaker-separated transcript, and action items.",
   authors: [{ name: "Scryon" }],
   openGraph: {
     type: "website",
     siteName: "Scryon",
-    title: "Scryon — AI Call Transcription & Analysis",
+    title: "Scryon — Call notes for Android",
     description:
-      "Transcribe, analyze, and search the call recordings already on your phone with AI. Speaker identification, action items, and sentiment.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+      "Turn saved call recordings into summaries, speaker-separated transcripts, and action items.",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Scryon — AI Call Transcription & Analysis",
-    description: "Transcribe, analyze, and search your phone calls with AI.",
-    images: ["/og-image.png"],
+    card: "summary",
+    title: "Scryon — Call notes for Android",
+    description: "Turn saved call recordings into summaries, transcripts, and action items.",
   },
   robots: { index: true, follow: true },
 };
@@ -56,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${googleSansFlex.variable} h-full antialiased`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

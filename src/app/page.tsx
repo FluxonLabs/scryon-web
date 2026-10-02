@@ -1,369 +1,278 @@
 import Link from "next/link";
 import {
-  Mic,
-  BrainCircuit,
-  CheckSquare,
-  Search,
-  TrendingUp,
-  Users,
-  Zap,
-  Shield,
   ArrowRight,
-  Star,
+  CheckCircle2,
+  ChevronDown,
+  FileText,
+  ListChecks,
+  MoreVertical,
+  Phone,
+  Play,
+  Search,
+  ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
-const FEATURES = [
-  {
-    icon: Mic,
-    title: "One-Tap Transcription",
-    description:
-      "Scryon finds call recordings already on your phone and transcribes them the moment you tap — no manual file hunting or uploads.",
-  },
-  {
-    icon: Users,
-    title: "Speaker Identification",
-    description:
-      "Tells you exactly who said what. Labels are refined with your contact's name automatically.",
-  },
-  {
-    icon: BrainCircuit,
-    title: "AI Analysis",
-    description:
-      "Extracts sentiment, tone, key discussion points, decisions, and a scannable executive summary for every call.",
-  },
-  {
-    icon: CheckSquare,
-    title: "Action Items",
-    description:
-      "Never drop a follow-up again. Scryon finds every commitment made in the call and tracks it for you.",
-  },
-  {
-    icon: Search,
-    title: "Semantic Search",
-    description:
-      'Type "calls about payment issues" and find them — even if those exact words were never spoken.',
-  },
-  {
-    icon: TrendingUp,
-    title: "Call Insights",
-    description:
-      "Sentiment trends, call volume patterns, and top discussion topics across all your calls in one dashboard.",
-  },
-];
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.scryon";
 
 const STEPS = [
   {
-    step: "01",
-    title: "Make your call",
-    description:
-      "Scryon doesn't record calls itself — it detects the recording your phone's call-recorder already saved, matches it to your call log, and you tap Transcribe.",
+    number: "01",
+    title: "Record with your phone",
+    description: "Use your phone’s supported call-recording feature. Scryon never records calls.",
   },
   {
-    step: "02",
-    title: "AI processes it",
-    description:
-      "Scryon transcribes, diarizes speakers, and runs LLM analysis in the background. Usually done in under a minute.",
+    number: "02",
+    title: "Choose Transcribe",
+    description: "Open My Calls and select the saved recording you want Scryon to process.",
   },
   {
-    step: "03",
-    title: "Get the full picture",
-    description:
-      "Open the call to see the full transcript, summary bullets, action items, sentiment, and tone — all structured and searchable.",
+    number: "03",
+    title: "Review your notes",
+    description: "Read the summary, transcript, and action items, then update the title if needed.",
   },
 ];
 
-const TRANSCRIPT_DEMO = [
+const FEATURES = [
   {
-    speaker: "You",
-    role: "user",
-    text: "I wanted to walk you through the Q3 roadmap before we finalize the pricing.",
+    icon: FileText,
+    title: "Readable transcripts",
+    description: "Follow the conversation with speaker-separated text and clear timestamps.",
   },
   {
-    speaker: "Ravi",
-    role: "contact",
-    text: "Sure, I had a quick question on pricing first — the $99 tier feels high for our team size.",
+    icon: Sparkles,
+    title: "Useful summaries",
+    description: "See the decisions and important discussion points without replaying the full call.",
   },
   {
-    speaker: "You",
-    role: "user",
-    text: "Totally fair. Let me pull up what's included at that tier. We can work something out.",
-  },
-  {
-    speaker: "Ravi",
-    role: "contact",
-    text: "That'd be great. Can you send a revised quote by Wednesday?",
+    icon: ListChecks,
+    title: "Action items",
+    description: "Keep follow-ups visible and mark them complete from one focused list.",
   },
 ];
 
-const ACTION_ITEMS_DEMO = [
-  { text: "Send revised pricing quote to Ravi", priority: "high", due: "Wed" },
-  { text: "Schedule Q3 roadmap review demo on Friday", priority: "high", due: "Fri" },
-];
+function AppPreview() {
+  return (
+    <div className="mx-auto w-full max-w-[370px] rounded-[32px] border border-[var(--border)] bg-[var(--surface-2)] p-2 shadow-[0_28px_80px_rgba(36,36,36,0.16)] dark:shadow-[0_28px_80px_rgba(0,0,0,0.32)]">
+      <div className="overflow-hidden rounded-[26px] border border-[var(--border-subtle)] bg-[var(--background)]">
+        <div className="flex items-center justify-between px-5 pb-3 pt-5 text-[11px] font-semibold text-[var(--text-secondary)]">
+          <span>10:38</span>
+          <span>5G&nbsp;&nbsp;87%</span>
+        </div>
+
+        <div className="flex items-center gap-3 px-5 pb-5 pt-2">
+          <div className="flex size-11 items-center justify-center rounded-full bg-[#ff922e] text-sm font-bold text-white">
+            PY
+          </div>
+          <h2 className="flex-1 text-[24px] font-semibold leading-8 text-[var(--foreground)]">
+            My Transcription
+          </h2>
+          <Search className="text-[var(--text-secondary)]" size={21} strokeWidth={1.8} />
+        </div>
+
+        <div className="border-y border-[var(--border-subtle)] bg-[var(--surface)] px-5 py-4">
+          <div className="flex items-center gap-2 text-[15px] font-medium text-[var(--foreground)]">
+            Recent transcription
+            <ChevronDown size={17} className="text-[var(--text-muted)]" />
+          </div>
+        </div>
+
+        <div className="min-h-[430px] px-5 py-4">
+          <p className="mb-5 text-xs font-medium text-[var(--text-muted)]">Today</p>
+
+          <div className="flex items-start gap-3">
+            <div className="flex size-11 shrink-0 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)]">
+              <Phone size={18} className="text-[var(--text-secondary)]" strokeWidth={1.8} />
+            </div>
+
+            <div className="min-w-0 flex-1">
+              <div className="flex items-start gap-2">
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-[15px] font-semibold text-[var(--foreground)]">
+                    Project catch-up
+                  </p>
+                  <p className="mt-0.5 text-xs text-[var(--text-muted)]">10:38 pm</p>
+                </div>
+                <div className="flex items-center gap-1 rounded-full border border-[var(--border)] px-2 py-1 text-[11px] text-[var(--text-secondary)]">
+                  <Play size={10} fill="currentColor" />
+                  12m 37s
+                </div>
+                <MoreVertical size={17} className="text-[var(--text-muted)]" />
+              </div>
+
+              <div className="mt-5 flex gap-2.5">
+                <Sparkles size={16} className="mt-0.5 shrink-0 text-[var(--brand)]" />
+                <p className="text-[13px] leading-5 text-[var(--text-secondary)]">
+                  Reviewed the launch plan, clarified ownership, and agreed on the next review.
+                </p>
+              </div>
+
+              <button className="mt-3 text-[13px] font-medium text-[var(--brand)]">
+                View detail
+              </button>
+
+              <div className="mt-5">
+                <div className="mb-2 flex items-center gap-2 text-[13px] font-medium text-[var(--foreground)]">
+                  <ListChecks size={16} className="text-[var(--text-muted)]" />
+                  Actions
+                </div>
+                <div className="flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 py-2.5">
+                  <span className="size-4 rounded-full border border-[var(--text-muted)]" />
+                  <span className="text-xs text-[var(--text-secondary)]">Share revised launch timeline</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-3 border-t border-[var(--border)] bg-[var(--surface)] px-3 py-3">
+          <div className="flex flex-col items-center gap-1 text-[var(--text-muted)]">
+            <Phone size={19} />
+            <span className="text-[10px]">My Calls</span>
+          </div>
+          <div className="flex flex-col items-center gap-1 text-[var(--brand)]">
+            <FileText size={19} />
+            <span className="text-[10px] font-semibold">Transcribed</span>
+          </div>
+          <div className="flex flex-col items-center gap-1 text-[var(--text-muted)]">
+            <ListChecks size={19} />
+            <span className="text-[10px]">Actions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[var(--background)]">
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-20 px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--surface)] text-xs text-[var(--text-secondary)] mb-8">
-            <Zap size={12} className="text-[var(--brand-light)]" />
-            AI-powered · Speaker ID · Semantic search
+      <main>
+        <section className="px-5 pb-24 pt-32 sm:px-6 lg:pb-28 lg:pt-36">
+          <div className="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="max-w-2xl">
+              <p className="mb-5 text-sm font-medium text-[var(--brand)]">Call notes for Android</p>
+              <h1 className="text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-[var(--foreground)] sm:text-5xl lg:text-[60px]">
+                Turn saved call recordings into clear next steps.
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-[var(--text-secondary)]">
+                Choose a recording already saved on your phone. Scryon creates a concise summary,
+                a speaker-separated transcript, and action items you can follow through.
+              </p>
+              <div className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                <Link
+                  href={PLAY_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand)] px-6 py-3.5 font-semibold text-white transition-colors hover:bg-[var(--brand-light)]"
+                >
+                  Get Scryon for Android
+                  <ArrowRight size={18} />
+                </Link>
+                <Link
+                  href="/#how-it-works"
+                  className="px-2 py-3 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--foreground)]"
+                >
+                  See how it works
+                </Link>
+              </div>
+              <div className="mt-8 flex items-center gap-2 text-sm text-[var(--text-muted)]">
+                <CheckCircle2 size={17} className="text-[var(--positive)]" />
+                Scryon never records your calls.
+              </div>
+            </div>
+
+            <AppPreview />
           </div>
+        </section>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-[var(--foreground)] leading-[1.1] tracking-tight mb-6">
-            Every call, fully{" "}
-            <span className="text-[var(--brand-light)]">remembered</span>
-          </h1>
+        <section id="how-it-works" className="border-t border-[var(--border)] bg-[var(--surface)] px-5 py-24 sm:px-6">
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-2xl">
+              <p className="text-sm font-medium text-[var(--brand)]">How it works</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] text-[var(--foreground)] sm:text-4xl">
+                You stay in control of every transcription.
+              </h2>
+            </div>
 
-          <p className="text-lg sm:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto mb-10 leading-relaxed">
-            Scryon finds the call recordings already on your Android phone, then transcribes them,
-            identifies each speaker, and extracts action items, sentiment, and key insights.
-          </p>
+            <div className="mt-12 grid gap-4 md:grid-cols-3">
+              {STEPS.map((step) => (
+                <article key={step.number} className="rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-6">
+                  <p className="text-sm font-semibold text-[var(--brand)]">{step.number}</p>
+                  <h3 className="mt-8 text-xl font-semibold text-[var(--foreground)]">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">{step.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <section id="features" className="border-t border-[var(--border)] px-5 py-24 sm:px-6">
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-2xl">
+              <p className="text-sm font-medium text-[var(--brand)]">Inside every call</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] text-[var(--foreground)] sm:text-4xl">
+                The useful parts, ready when you need them.
+              </h2>
+            </div>
+
+            <div className="mt-12 grid gap-8 md:grid-cols-3">
+              {FEATURES.map((feature) => (
+                <article key={feature.title}>
+                  <div className="flex size-11 items-center justify-center rounded-xl bg-[var(--brand-dim)]">
+                    <feature.icon size={20} className="text-[var(--brand)]" />
+                  </div>
+                  <h3 className="mt-5 text-lg font-semibold text-[var(--foreground)]">{feature.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">{feature.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-[var(--border)] bg-[var(--surface)] px-5 py-16 sm:px-6">
+          <div className="mx-auto flex max-w-4xl flex-col gap-5 sm:flex-row sm:items-center">
+            <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-[var(--positive-dim)]">
+              <ShieldCheck size={22} className="text-[var(--positive)]" />
+            </div>
+            <div className="flex-1">
+              <h2 className="text-lg font-semibold text-[var(--foreground)]">Your recording, your choice</h2>
+              <p className="mt-1 text-sm leading-6 text-[var(--text-secondary)]">
+                Nothing is uploaded until you tap Transcribe. Audio is processed for transcription
+                and then deleted from processing storage. Read the{" "}
+                <Link href="/privacy" className="font-medium text-[var(--brand)] hover:underline">
+                  privacy policy
+                </Link>
+                .
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-[var(--border)] px-5 py-24 text-center sm:px-6">
+          <div className="mx-auto max-w-2xl">
+            <h2 className="text-3xl font-semibold tracking-[-0.02em] text-[var(--foreground)] sm:text-4xl">
+              Keep the conversation. Lose the busywork.
+            </h2>
+            <p className="mx-auto mt-4 max-w-lg text-[var(--text-secondary)]">
+              Turn the recordings you choose into notes you can use.
+            </p>
             <Link
-              href="https://play.google.com/store"
+              href={PLAY_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--brand)] text-white font-semibold hover:bg-[var(--brand-light)] transition-colors"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[var(--brand)] px-7 py-3.5 font-semibold text-white transition-colors hover:bg-[var(--brand-light)]"
             >
-              Download for Android
-              <ArrowRight size={16} />
-            </Link>
-            <Link
-              href="https://dashboard.scryon.app/login"
-              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-[var(--border)] text-[var(--text-secondary)] font-semibold hover:text-[var(--foreground)] hover:border-[var(--brand)] transition-colors"
-            >
-              Sign in to dashboard
+              Get Scryon for Android
+              <ArrowRight size={18} />
             </Link>
           </div>
-        </div>
-
-        {/* Demo card */}
-        <div className="mt-20 max-w-3xl mx-auto">
-          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] overflow-hidden shadow-2xl">
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-[var(--border)] bg-[var(--surface-2)]">
-              <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
-              <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-              <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
-              <span className="ml-3 text-xs text-[var(--text-muted)] font-mono">
-                Ravi — Quarterly Review · 18 min · sales
-              </span>
-            </div>
-
-            <div className="p-6 grid sm:grid-cols-2 gap-6">
-              {/* Transcript */}
-              <div>
-                <p className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider mb-3">
-                  Transcript
-                </p>
-                <div className="space-y-3">
-                  {TRANSCRIPT_DEMO.map((seg, i) => (
-                    <div key={i} className="text-sm">
-                      <span
-                        className={`font-semibold mr-2 ${
-                          seg.role === "user"
-                            ? "text-[var(--brand-light)]"
-                            : "text-[var(--positive)]"
-                        }`}
-                      >
-                        {seg.speaker}
-                      </span>
-                      <span className="text-[var(--text-secondary)]">{seg.text}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Analysis */}
-              <div className="space-y-4">
-                <div>
-                  <p className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider mb-2">
-                    Summary
-                  </p>
-                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                    Ravi pushed back on the $99/seat tier. Agreed on a Friday demo and revised quote
-                    by Wednesday.
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider mb-2">
-                    Sentiment
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <div className="flex-1 h-2 rounded-full bg-[var(--surface-2)] overflow-hidden">
-                      <div
-                        className="h-full rounded-full bg-[var(--positive)]"
-                        style={{ width: "65%" }}
-                      />
-                    </div>
-                    <span className="text-xs font-semibold text-[var(--positive)]">+0.55</span>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider mb-2">
-                    Action Items
-                  </p>
-                  <div className="space-y-2">
-                    {ACTION_ITEMS_DEMO.map((item, i) => (
-                      <div
-                        key={i}
-                        className="flex items-start gap-2 p-2 rounded-lg bg-[var(--surface-2)] border border-[var(--border-subtle)]"
-                      >
-                        <div className="w-4 h-4 rounded border border-[var(--brand)] mt-0.5 flex-shrink-0" />
-                        <div className="flex-1 min-w-0">
-                          <p className="text-xs text-[var(--foreground)]">{item.text}</p>
-                          <p className="text-xs text-[var(--text-muted)]">
-                            Due {item.due} · {item.priority}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section id="how-it-works" className="py-24 px-4 sm:px-6 border-t border-[var(--border)]">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-xs font-semibold text-[var(--brand-light)] uppercase tracking-widest mb-3">
-              How it works
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)]">
-              From call to insights in minutes
-            </h2>
-          </div>
-
-          <div className="grid sm:grid-cols-3 gap-8">
-            {STEPS.map((s) => (
-              <div key={s.step} className="relative">
-                <div className="text-5xl font-black text-[var(--border)] mb-4">{s.step}</div>
-                <h3 className="text-lg font-bold text-[var(--foreground)] mb-2">{s.title}</h3>
-                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{s.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section id="features" className="py-24 px-4 sm:px-6 border-t border-[var(--border)]">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-xs font-semibold text-[var(--brand-light)] uppercase tracking-widest mb-3">
-              Features
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)]">
-              Everything your calls tell you,
-              <br />
-              finally captured
-            </h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {FEATURES.map((f) => (
-              <div
-                key={f.title}
-                className="p-6 rounded-xl border border-[var(--border)] bg-[var(--surface)] hover:border-[var(--brand)] transition-colors group"
-              >
-                <div className="w-10 h-10 rounded-lg bg-[var(--brand-dim)] flex items-center justify-center mb-4 group-hover:bg-[var(--brand)] transition-colors">
-                  <f.icon
-                    size={18}
-                    className="text-[var(--brand-light)] group-hover:text-white transition-colors"
-                  />
-                </div>
-                <h3 className="font-semibold text-[var(--foreground)] mb-2">{f.title}</h3>
-                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{f.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Web dashboard callout */}
-      <section className="py-24 px-4 sm:px-6 border-t border-[var(--border)]">
-        <div className="max-w-4xl mx-auto">
-          <div className="rounded-2xl border border-[var(--brand-dim)] bg-[var(--surface)] p-8 sm:p-12 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--brand-dim)] text-xs font-semibold text-[var(--brand-light)] mb-6">
-              NEW — Web Dashboard
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[var(--foreground)] mb-4">
-              See more on the web
-            </h2>
-            <p className="text-[var(--text-secondary)] max-w-xl mx-auto mb-8 leading-relaxed">
-              Sign in to your Scryon dashboard to view your full call library, run semantic search
-              across every conversation, track action items in one place, and see sentiment and topic
-              trends over time.
-            </p>
-            <Link
-              href="https://dashboard.scryon.app/login"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--brand)] text-white font-semibold hover:bg-[var(--brand-light)] transition-colors"
-            >
-              Open dashboard
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Privacy note */}
-      <section className="py-16 px-4 sm:px-6 border-t border-[var(--border)]">
-        <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <div className="w-10 h-10 rounded-lg bg-[var(--positive-dim)] flex items-center justify-center flex-shrink-0">
-            <Shield size={18} className="text-[var(--positive)]" />
-          </div>
-          <div>
-            <h3 className="font-semibold text-[var(--foreground)] mb-1">Your data, your calls</h3>
-            <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-              Audio is processed for transcription and then deleted. Only the transcript and analysis
-              are stored — encrypted, on infrastructure you control. Read our{" "}
-              <Link href="/privacy" className="text-[var(--brand-light)] hover:underline">
-                privacy policy
-              </Link>
-              .
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-24 px-4 sm:px-6 border-t border-[var(--border)]">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-1 mb-6">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} size={16} className="fill-[var(--warning)] text-[var(--warning)]" />
-            ))}
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] mb-4">
-            Start capturing your calls today
-          </h2>
-          <p className="text-[var(--text-secondary)] mb-8">
-            Free to download. No subscription required to get started.
-          </p>
-          <Link
-            href="https://play.google.com/store"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[var(--brand)] text-white font-bold text-lg hover:bg-[var(--brand-light)] transition-colors"
-          >
-            Download for Android
-            <ArrowRight size={20} />
-          </Link>
-          <p className="text-xs text-[var(--text-muted)] mt-4">Android 8.0+ required</p>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </div>

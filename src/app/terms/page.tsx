@@ -53,7 +53,7 @@ export default function TermsPage() {
               Service availability
             </h2>
             <p>
-              Scryon is provided "as is" without warranty. We may modify, suspend, or discontinue
+              Scryon is provided &quot;as is&quot; without warranty. We may modify, suspend, or discontinue
               the service at any time. We are not liable for any downtime or data loss.
             </p>
           </section>

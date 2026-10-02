@@ -3,58 +3,56 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ─── Light theme (default) ─────────────────────────────────────────────── */
+/* Scryon app semantic tokens — mirrored from the Android design system. */
 :root {
-  --background: #ffffff;
-  --foreground: #111118;
-  --surface: #f5f5fb;
-  --surface-2: #ededf8;
-  --border: #e0e0ee;
-  --border-subtle: #eaeaf5;
+  --background: #f2f2f2;
+  --foreground: #242424;
+  --surface: #fcfcfc;
+  --surface-2: #ffffff;
+  --border: #dedede;
+  --border-subtle: #ebebeb;
 
-  --brand: #5153e8;
-  --brand-light: #6366f1;
-  --brand-dim: rgba(99, 102, 241, 0.08);
+  --brand: #2e82ff;
+  --brand-light: #0050f0;
+  --brand-dim: #f1f6fd;
 
-  --positive: #16a34a;
-  --positive-dim: rgba(22, 163, 74, 0.1);
-  --negative: #dc2626;
-  --negative-dim: rgba(220, 38, 38, 0.1);
-  --warning: #ea580c;
-  --warning-dim: rgba(234, 88, 12, 0.1);
+  --positive: #017048;
+  --positive-dim: #eaf8f1;
+  --negative: #f23558;
+  --negative-dim: #fef0f3;
+  --warning: #a66a00;
+  --warning-dim: #fcfaee;
 
-  --text-primary: #111118;
-  --text-secondary: #555566;
-  --text-muted: #99998f;
+  --text-primary: #242424;
+  --text-secondary: #5d5d5d;
+  --text-muted: #6f6f6f;
 
-  --radius: 0.5rem;
-  --font-sans: "Geist", system-ui, -apple-system, sans-serif;
-  --font-mono: "Geist Mono", "Fira Code", monospace;
+  --radius: 0.75rem;
+  --font-sans: var(--font-google-sans-flex), system-ui, sans-serif;
 }
 
-/* ─── Dark theme ─────────────────────────────────────────────────────────── */
 .dark {
-  --background: #0f0f13;
-  --foreground: #e8e8f0;
-  --surface: #1a1a26;
-  --surface-2: #111120;
-  --border: #2a2a3a;
-  --border-subtle: #22223a;
+  --background: #2e2e2e;
+  --foreground: #f2f2f2;
+  --surface: #242424;
+  --surface-2: #292929;
+  --border: #484848;
+  --border-subtle: #3a3a3a;
 
-  --brand: #6366f1;
-  --brand-light: #818cf8;
-  --brand-dim: rgba(99, 102, 241, 0.12);
+  --brand: #6196ff;
+  --brand-light: #2e82ff;
+  --brand-dim: #00194d;
 
-  --positive: #4ade80;
-  --positive-dim: rgba(74, 222, 128, 0.1);
-  --negative: #f87171;
-  --negative-dim: rgba(248, 113, 113, 0.1);
-  --warning: #fb923c;
-  --warning-dim: rgba(251, 146, 60, 0.1);
+  --positive: #5dce97;
+  --positive-dim: #164b34;
+  --negative: #ff284f;
+  --negative-dim: #381e23;
+  --warning: #ffcf4a;
+  --warning-dim: #302b08;
 
-  --text-primary: #e8e8f0;
-  --text-secondary: #888;
-  --text-muted: #555;
+  --text-primary: #f2f2f2;
+  --text-secondary: #aeaeae;
+  --text-muted: #929292;
 }
 
 @theme inline {
@@ -68,7 +66,6 @@
   --color-negative: var(--negative);
   --color-warning: var(--warning);
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
 }
 
 * { box-sizing: border-box; }
@@ -77,8 +74,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  min-width: 320px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--brand);
+  color: #ffffff;
 }
 
 ::-webkit-scrollbar { width: 6px; height: 6px; }

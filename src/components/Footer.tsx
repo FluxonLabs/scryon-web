@@ -23,9 +23,6 @@ export function Footer() {
           <Link href="/account/delete" className="hover:text-[var(--foreground)] transition-colors">
             Delete account
           </Link>
-          <Link href="https://dashboard.scryon.app/login" className="hover:text-[var(--foreground)] transition-colors">
-            Sign in
-          </Link>
         </nav>
 
         <p className="text-xs text-[var(--text-muted)]">
