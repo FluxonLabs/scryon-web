@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  ArrowRight,
   CheckCircle2,
   ChevronDown,
   FileText,
@@ -12,6 +11,7 @@ import {
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
+import { AndroidIcon } from "@/components/AndroidIcon";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
@@ -242,8 +242,8 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand)] px-6 py-3.5 font-semibold text-white transition-colors hover:bg-[var(--brand-light)]"
                 >
+                  <AndroidIcon className="size-5 shrink-0" />
                   Get Scryon for Android
-                  <ArrowRight size={18} />
                 </Link>
                 <Link
                   href="/#how-it-works"
@@ -337,8 +337,8 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[var(--brand)] px-7 py-3.5 font-semibold text-white transition-colors hover:bg-[var(--brand-light)]"
             >
+              <AndroidIcon className="size-5 shrink-0" />
               Get Scryon for Android
-              <ArrowRight size={18} />
             </Link>
           </div>
         </section>

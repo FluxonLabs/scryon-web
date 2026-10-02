@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { AndroidIcon } from "@/components/AndroidIcon";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function Navbar() {
@@ -43,8 +44,9 @@ export function Navbar() {
             href="https://play.google.com/store/apps/details?id=com.scryon"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-semibold px-4 py-2 rounded-lg bg-[var(--brand)] text-white hover:bg-[var(--brand-light)] transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg bg-[var(--brand)] text-white hover:bg-[var(--brand-light)] transition-colors"
           >
+            <AndroidIcon className="size-4 shrink-0" />
             Get the app
           </Link>
           <ThemeToggle />
@@ -70,9 +72,10 @@ export function Navbar() {
             href="https://play.google.com/store/apps/details?id=com.scryon"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-semibold px-4 py-2 rounded-lg bg-[var(--brand)] text-white text-center"
+            className="inline-flex items-center justify-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg bg-[var(--brand)] text-white text-center"
             onClick={() => setOpen(false)}
           >
+            <AndroidIcon className="size-4 shrink-0" />
             Get the app
           </Link>
         </div>
