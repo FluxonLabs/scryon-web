@@ -34,3 +34,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+# Scryon website
+
+## OpenAI Ads measurement
+
+Set `NEXT_PUBLIC_OPENAI_ADS_PIXEL_ID` at build time to enable the OpenAI Ads pixel. Set
+`NEXT_PUBLIC_DEPLOYMENT_ENV` to `production` on non-Vercel production deployments; Vercel uses
+`VERCEL_ENV` automatically. Pixel debug mode is disabled in production and enabled in development
+or staging.
+
+The `lead_created` event represents a click from scryon.app to Google Play. It does not prove that
+the Android app was installed. The current site has no marketing-consent manager. Before using the
+pixel in a jurisdiction that requires prior advertising consent, add one and render the pixel only
+after the visitor grants marketing/advertising consent.

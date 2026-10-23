@@ -34,6 +34,7 @@ const processors = [
   ["Railway and configured object-storage providers", "Application hosting, databases, and private artifact storage", "Service data stored or processed by Scryon"],
   ["Sentry", "Privacy-filtered error reporting when enabled", "Technical diagnostics with request bodies, sensitive headers, and user content removed"],
   ["Vercel Analytics", "Website performance and aggregate usage measurement", "Limited website and device interaction data"],
+  ["OpenAI Ads", "Advertising campaign measurement", "Google Play CTA interaction and limited website/device information; no call content"],
 ] as const;
 
 function PolicySection({
@@ -223,6 +224,14 @@ export default function PrivacyPage() {
                 along with Vercel Analytics to understand aggregate traffic and performance. We do
                 not use call recordings or transcripts for advertising. You can restrict cookies or
                 local storage through your browser, although some preferences may no longer persist.
+              </p>
+              <p>
+                We may use an OpenAI advertising measurement pixel to understand whether an ad
+                interaction leads someone to click a Google Play download link. This measures the
+                website CTA interaction; it does not tell Scryon whether the Android app was
+                installed. We do not send names, contact details, recordings, transcripts, or call
+                information with this event. Where required, advertising measurement should run only
+                after the appropriate consent is provided.
               </p>
               <p>
                 The Android app uses Firebase services for authentication, push notifications, and

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
+import { OpenAIAdsPixel } from "@/components/OpenAIAdsPixel";
 import "./globals.css";
 
 const googleSansFlex = localFont({
@@ -54,6 +55,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         {children}
+        <OpenAIAdsPixel />
         <Analytics />
       </body>
     </html>

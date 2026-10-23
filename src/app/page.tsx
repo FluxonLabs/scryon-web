@@ -14,8 +14,7 @@ import {
 import { AndroidIcon } from "@/components/AndroidIcon";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-
-const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.scryon";
+import { GooglePlayLink } from "@/components/GooglePlayLink";
 
 const STEPS = [
   {
@@ -236,15 +235,14 @@ export default function HomePage() {
                 a speaker-separated transcript, and action items you can follow through.
               </p>
               <div className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-                <Link
-                  href={PLAY_STORE_URL}
+                <GooglePlayLink
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand)] px-6 py-3.5 font-semibold text-white transition-colors hover:bg-[var(--brand-light)]"
                 >
                   <AndroidIcon className="size-5 shrink-0" />
                   Get Scryon for Android
-                </Link>
+                </GooglePlayLink>
                 <Link
                   href="/#how-it-works"
                   className="px-2 py-3 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--foreground)]"
@@ -331,15 +329,14 @@ export default function HomePage() {
             <p className="mx-auto mt-4 max-w-lg text-[var(--text-secondary)]">
               Turn the recordings you choose into notes you can use.
             </p>
-            <Link
-              href={PLAY_STORE_URL}
+            <GooglePlayLink
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[var(--brand)] px-7 py-3.5 font-semibold text-white transition-colors hover:bg-[var(--brand-light)]"
             >
               <AndroidIcon className="size-5 shrink-0" />
               Get Scryon for Android
-            </Link>
+            </GooglePlayLink>
           </div>
         </section>
       </main>

@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AndroidIcon } from "@/components/AndroidIcon";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { GooglePlayLink } from "@/components/GooglePlayLink";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -40,15 +41,14 @@ export function Navbar() {
           <Link href="/#features" className="text-sm text-[var(--text-secondary)] hover:text-[var(--foreground)] transition-colors">
             Features
           </Link>
-          <Link
-            href="https://play.google.com/store/apps/details?id=com.scryon"
+          <GooglePlayLink
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg bg-[var(--brand)] text-white hover:bg-[var(--brand-light)] transition-colors"
           >
             <AndroidIcon className="size-4 shrink-0" />
             Get the app
-          </Link>
+          </GooglePlayLink>
           <ThemeToggle />
         </div>
 
@@ -68,8 +68,7 @@ export function Navbar() {
         <div className="px-4 py-4 flex flex-col gap-4">
           <Link href="/#how-it-works" className="text-sm text-[var(--text-secondary)]" onClick={() => setOpen(false)}>How it works</Link>
           <Link href="/#features" className="text-sm text-[var(--text-secondary)]" onClick={() => setOpen(false)}>Features</Link>
-          <Link
-            href="https://play.google.com/store/apps/details?id=com.scryon"
+          <GooglePlayLink
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg bg-[var(--brand)] text-white text-center"
@@ -77,7 +76,7 @@ export function Navbar() {
           >
             <AndroidIcon className="size-4 shrink-0" />
             Get the app
-          </Link>
+          </GooglePlayLink>
         </div>
       </div>
     </nav>
